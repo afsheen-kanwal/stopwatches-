@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+
+    <style>
+        h2 {
+            display: inline-block;
+            width: 20%;
+
+        }
+
+        #start {
+            background-color: brown;
+            border-radius: 20%;
+        }
+
+        #stop {
+            background-color: rgb(76, 180, 16);
+        }
+
+        #reset {
+            background-color: rgb(38, 77, 251);
+        }
+
+        .main {
+            border: 5px groove black;
+            border-radius: 30px;
+            background-color: rgb(213, 242, 146);
+            width: 30%;
+            padding: 5px;
+            margin: auto;
+            margin-top: 20px;
+            padding-bottom: 30px;
+            text-align: center;
+        }
+
+
+        button {
+
+            transition: 0.3ms;
+            background-color: rgb(76, 215, 22);
+            width: 23%;
+            font-size: large;
+        }
+        /* Tablets */
+@media (max-width: 768px) {
+    .main {
+        width: 60%;
+    }
+
+    h2 {
+        width: 25%;
+        font-size: 20px;
+    }
+
+    button {
+        width: 30%;
+        font-size: medium;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .main {
+        width: 90%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        width: 30%;
+        font-size: 18px;
+    }
+
+    button {
+        width: 80%;
+        margin: 5px 0;
+        font-size: medium;
+    }
+
+    .button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+    </style>
+
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="head">
+            <h1>STOPWATCH 🕓🕤</h1>
+        </div>
+        <div class="time">
+            <h2 id="start">00</h2>
+            <h2 id="stop">00</h2>
+            <h2 id="reset">00</h2>
+        </div>
+
+        <div class="button">
+            <button   onclick="start()">start </button>
+            <button  onclick="stop()">stop </button>
+            <button  onclick="reset()">reset </button>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
