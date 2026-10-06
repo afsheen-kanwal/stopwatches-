@@ -1,100 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stopwatch</title>
-
-    <style>
-        h2 {
-            display: inline-block;
-            width: 20%;
-
-        }
-
-        #start {
-            background-color: brown;
-            border-radius: 20%;
-        }
-
-        #stop {
-            background-color: rgb(76, 180, 16);
-        }
-
-        #reset {
-            background-color: rgb(38, 77, 251);
-        }
-
-        .main {
-            border: 5px groove black;
-            border-radius: 30px;
-            background-color: rgb(213, 242, 146);
-            width: 30%;
-            padding: 5px;
-            margin: auto;
-            margin-top: 20px;
-            padding-bottom: 30px;
-            text-align: center;
-        }
-
-
-        button {
-
-            transition: 0.3ms;
-            background-color: rgb(76, 215, 22);
-            width: 23%;
-            font-size: large;
-        }
-        /* Tablets */
-@media (max-width: 768px) {
-    .main {
-        width: 60%;
-    }
-
-    h2 {
-        width: 25%;
-        font-size: 20px;
-    }
-
-    button {
-        width: 30%;
-        font-size: medium;
-    }
+    <title>Document</title>
+    <style>body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+margin-top: 50px;
 }
 
-/* Mobile */
+.main {
+    border: 5px groove black;
+    border-radius: 30px;
+    background-color: rgb(213, 242, 146);
+    width: 350px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.time {
+    font-size: 35px;
+    font-weight: bold;
+    margin: 20px 0;
+    background: white;
+    padding: 10px;
+    border-radius: 15px;
+    border: 2px solid #ccc;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+button {
+    flex: 1;
+    padding: 10px;
+    font-size: medium;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+#startBtn {
+    background-color: brown;
+}
+
+button:nth-child(2) {
+    background-color: rgb(76, 180, 16);
+}
+
+button:nth-child(3) {
+    background-color: rgb(38, 77, 251);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Responsive for Mobile */
 @media (max-width: 480px) {
     .main {
         width: 90%;
-        padding: 10px;
     }
-
-    h1 {
-        font-size: 22px;
-    }
-
-    h2 {
-        width: 30%;
-        font-size: 18px;
-    }
-
-    button {
-        width: 80%;
-        margin: 5px 0;
-        font-size: medium;
-    }
-
-    .button {
-        display: flex;
+    .buttons {
         flex-direction: column;
-        align-items: center;
+        gap: 10px;
     }
 }
-    </style>
-
+</style>
 </head>
-
 <body>
 
     <div class="main">
@@ -102,49 +88,18 @@
             <h1>STOPWATCH 🕓🕤</h1>
         </div>
         <div class="time">
-            <h2 id="start">00</h2>
-            <h2 id="stop">00</h2>
-            <h2 id="reset">00</h2>
+            <span id="min">00</span> :
+            <span id="sec">00</span> :
+            <span id="msec">00</span>
         </div>
-
-        <div class="button">
-            <button   onclick="start()">start </button>
-            <button  onclick="stop()">stop </button>
-            <button  onclick="reset()">reset </button>
-
+        <div class="buttons">
+            <button id="startBtn" onclick="startTimer()">Start</button>
+            <button onclick="stopTimer()">Stop</button>
+            <button onclick="resetTimer()">Reset</button>
         </div>
-
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 
     <script src="app.js"></script>
 </body>
-
 </html>

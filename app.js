@@ -1,56 +1,53 @@
-var getmin= document.querySelector("#start")
-var getsec= document.querySelector("#stop")
-var getmsec= document.querySelector("#reset")
-   
-var jsmin= 0
-var jssec= 0 
-var jsmsec= 0 
-var afsheen;
+var minDisplay = document.querySelector("#min");
+var secDisplay = document.querySelector("#sec");
+var msecDisplay = document.querySelector("#msec");
+var startBtn = document.querySelector("#startBtn");
 
-function start(){  
-    if (afsheen !== null) return;
+var minutes = 0;
+var seconds = 0;
+var milliseconds = 0;
+var interval;
 
-    document.getElementById("start").disabled = true;
+function formatTime(val) {
+    return val < 10 ? "0" + val : val;
+}
 
-    afsheen = setInterval(function(){
-        jsmsec++;
-        getmsec.innerHTML = jsmsec;
+function startTimer() {
+    if (interval) return;
+    
+    startBtn.disabled = true;
+    
+    interval = setInterval(function () {
+        milliseconds++;
+        msecDisplay.innerHTML = formatTime(milliseconds);
 
-        if(jsmsec >= 100){
-            jssec++;
-            getsec.innerHTML = jssec;
-            jsmsec = 0;
+        if (milliseconds >= 100) {
+            seconds++;
+            secDisplay.innerHTML = formatTime(seconds);
+            milliseconds = 0;
         }
 
-        if (jssec >= 60){
-            jsmin++;
-            getmin.innerHTML = jsmin;
-            jssec = 0;
+        if (seconds >= 60) {
+            minutes++;
+            minDisplay.innerHTML = formatTime(minutes);
+            seconds = 0;
         }
-
     }, 10);
 }
 
-function stop(){
-    clearInterval(afsheen);
-    afsheen = null;  // 
-
-    document.getElementById("start").disabled = false;
+function stopTimer() {
+    clearInterval(interval);
+    interval = null;
+    startBtn.disabled = false;
 }
 
-
-
-function reset(){
-    clearInterval(afsheen);
-    afsheen = null;  
-
-    jsmin = 0;
-    jssec = 0;
-    jsmsec = 0;
-
-    getmin.innerHTML = jsmin;
-    getsec.innerHTML = jssec;
-    getmsec.innerHTML = jsmsec;
-
-    document.getElementById("start").disabled = false;
+function resetTimer() {
+    stopTimer();
+    minutes = 0;
+    seconds = 0;
+    milliseconds = 0;
+    
+    minDisplay.innerHTML = "00";
+    secDisplay.innerHTML = "00";
+    msecDisplay.innerHTML = "00";
 }
